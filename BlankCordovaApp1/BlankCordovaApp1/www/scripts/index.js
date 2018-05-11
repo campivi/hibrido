@@ -8,7 +8,7 @@
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        // Controlar la pausa de Cordova y reanudar eventos
+        /*// Controlar la pausa de Cordova y reanudar eventos
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener( 'resume', onResume.bind( this ), false );
         
@@ -17,7 +17,7 @@
         var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:block;');*/
     };
 
     function onPause() {
@@ -27,4 +27,32 @@
     function onResume() {
         // TODO: esta aplicación se ha reactivado. Restaure el estado de la aplicación aquí.
     };
-} )();
+})();
+
+// PERSONALIZE
+function validateLoginForm() {
+    var username = document.getElementById("username").value
+    var password = document.getElementById("password").value;
+    var alerta_username = document.getElementById("username_alert");
+    var alerta_password = document.getElementById("password_alert");
+    if (username == "") {
+        alerta_username.setAttribute('style', 'display:block;');
+    } else {
+        alerta_username.setAttribute('style', 'display:none;');
+        if (password == "") {
+            alerta_password.setAttribute('style', 'display:block;');
+        } else {
+            alerta_password.setAttribute('style', 'display:none;');
+
+            //IF USERNAME AND PASSWORD MATCH
+            if (username == "test" && password == "123") {
+                window.location.href = window.location.origin + "/main.html";
+            }
+        }
+    }
+    if (password == "") {
+        alerta_password.setAttribute('style', 'display:block;');
+    } 
+
+    
+}
