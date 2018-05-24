@@ -1,0 +1,108 @@
+﻿* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    /*background-image: linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #A7A7A7), color-stop(0.51, #E4E4E4) );*/
+    background-attachment: fixed;
+    font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #ffffff;
+    font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
+    font-size: 12px;
+}
+
+.container {
+    margin: 5px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav .navigation_icon {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav .navigation_icon:hover {
+    background-color: #FFCAB7;
+    filter: invert(100%);
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    /*right: 25px;*/
+    font-size: 36px;
+    /*margin-left: 50px;*/
+    padding: 8px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+
+.top_bar {
+    background-image: -webkit-gradient( linear, left top, left bottom, color-stop(0, #cbcbcb), color-stop(0.51, #979797) );
+    background-attachment: fixed;
+    display: inline-flex;
+    width: 100%;
+}
+
+.menu_open {
+    cursor: pointer;
+    padding-top: 3px;
+    padding-left: 3px;
+}
+
+.current_site {
+    margin:auto;
+}
+.icons{
+    margin: auto;
+}
+.menu_option {
+    padding: 8px;
+}
+
+.menu_option img {
+    width: 15px;
+}
+
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}

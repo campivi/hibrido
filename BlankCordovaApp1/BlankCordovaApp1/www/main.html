@@ -7,15 +7,34 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
 
     <title>App Hibrido</title>
 </head>
 <body>
-    <div>Aquí se debe incluir el contenido.</div>
+    <div class="container">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
+            <a href="" class="navigation_icon"><img src="images/zairon_icon.32.png" alt=" Icon" /></a>
+            <a href="" class="navigation_icon"><img src="images/zairon_icon.32.png" alt=" Icon" /></a>
+            <a href="" class="navigation_icon"><img src="images/zairon_icon.32.png" alt=" Icon" /></a>
+            <a href="" class="navigation_icon"><img src="images/zairon_icon.32.png" alt=" Icon" /></a>
+        </div>
+        <div class="top_bar">
+            <a onclick="openNav()"><img class="menu_open" src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
+            <h3 class="current_site">TITLE</h3>
+            <div class="icons">
+                <a href="" class="menu_option"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
+                <a href="" class="menu_option"><img src="images/icon_grid.32.png" alt="Grid Icon" /></a>
+                <a href="" class="menu_option"><img src="images/icon_list.32.png" alt="List Icon" /></a>
+                <a href="" class="menu_option"><img src="images/icon_lupa.128.png" alt="Search Icon" /></a>
+
+            </div>
+        </div>
+    </div>
 </body>
 </html>
