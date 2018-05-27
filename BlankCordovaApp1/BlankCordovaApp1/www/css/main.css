@@ -49,6 +49,17 @@ body {
     transition: 0.3s;
 }
 
+.sidenav .navigation_icon #project {
+    width: 27px;
+    /* padding-left: 6px; */
+    margin-bottom: -6px;
+}
+
+.sidenav .navigation_icon img{
+    width: 20px;
+    padding-left: 6px;
+}
+
 .sidenav .navigation_icon:hover {
     background-color: #FFCAB7;
     filter: invert(100%);
@@ -95,7 +106,26 @@ body {
 .menu_option img {
     width: 15px;
 }
+.project_wrapper{
+    margin-top: 25px;
+    margin-left: 50px;
+}
+.project_option {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+}
 
+.project_item {
+    text-align: center;
+}
+
+.project_item img {
+    width: 65px;
+    padding: 12px;
+    border: 2.5px solid #000000ba;
+    border-radius: 10px;
+}
 
 @media screen and (max-height: 450px) {
     .sidenav {

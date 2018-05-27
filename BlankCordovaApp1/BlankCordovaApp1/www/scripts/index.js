@@ -35,6 +35,7 @@ function validateLoginForm() {
     var password = document.getElementById("password").value;
     var alerta_username = document.getElementById("username_alert");
     var alerta_password = document.getElementById("password_alert");
+    var userpass_alert = document.getElementById("userpass_alert");
     if (username == "") {
         alerta_username.setAttribute('style', 'display:block;');
     } else {
@@ -47,12 +48,19 @@ function validateLoginForm() {
             //IF USERNAME AND PASSWORD MATCH
             if (username == "test" && password == "123") {
                 window.location.href = window.location.origin + "/main.html";
+            } else {
+                userpass_alert.setAttribute('style', 'display:block;');
             }
         }
     }
     if (password == "") {
         alerta_password.setAttribute('style', 'display:block;');
-    } 
-
-    
+    }     
 }
+
+document.addEventListener('keypress', function (e) { 
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+        validateLoginForm();
+    }
+});
