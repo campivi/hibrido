@@ -106,10 +106,12 @@ body {
 .menu_option img {
     width: 15px;
 }
+
 .project_wrapper{
     margin-top: 25px;
     margin-left: 50px;
 }
+
 .project_option {
     display: grid;
     grid-gap: 5px;
@@ -127,6 +129,107 @@ body {
     border-radius: 10px;
 }
 
+.docs_wrapper {
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.docs_wrapper h2 {
+    margin-bottom: 0;
+}
+
+.docs_wrapper hr {
+    margin-bottom: 20px;
+    width: 95%;
+    background-color: #000;
+}
+
+.docs_item {
+    padding-left: 20px; 
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.docs_item img{
+    width: 25px;
+    padding: 12px;
+    border: 2.5px solid #000000ba;
+    border-radius: 10px;
+}
+
+.docs_item h3{
+    padding-left: 15px;
+}
+.project_data_wrapper {
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.project_data_wrapper h4{
+    margin-bottom: 5px;
+}
+
+.project_data_wrapper input {
+    width: 70%;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.add_material_list {
+    padding: 2px;
+    padding-left: 5px;
+}
+
+.add_material_list img{
+    width: 20px;
+}
+
+.less_material_list {
+    padding: 2px;
+    padding-left: 5px;
+}
+
+.less_material_list img {
+    width: 20px;
+    transform: rotate(45deg);
+}
+
+.add_todo_list {
+    padding: 2px;
+    padding-left: 5px;
+}
+
+.add_todo_list img {
+    width: 20px;
+}
+
+.less_todo_list {
+    padding: 2px;
+    padding-left: 5px;
+}
+
+.less_todo_list img {
+    width: 20px;
+    transform: rotate(45deg);
+}
+
+ul {
+    background: #e4e4e4;
+    width: 70%;
+    padding-left: 25px;
+}
+
+li {
+    font-size: 1rem;
+}
+
+.button {
+    height: 30px !important;
+    margin-top: 50px;
+    width: 50% !important;
+    margin-left: 15vw;
+}
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;
