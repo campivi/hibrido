@@ -214,13 +214,14 @@ body {
     transform: rotate(45deg);
 }
 
-ul {
+ul, ol {
     background: #e4e4e4;
     width: 70%;
     padding-left: 25px;
 }
 
 li {
+    list-style-type: none;
     font-size: 1rem;
 }
 
@@ -229,6 +230,21 @@ li {
     margin-top: 50px;
     width: 50% !important;
     margin-left: 15vw;
+}
+.button-2 {
+    height: 30px !important;
+    margin-top: 50px;
+    width: 35% !important;
+    margin-left: 2vw;
+}
+
+.delete {
+    border: 1px solid red !important;
+    background-color: #fab8b8;
+}
+
+.done {
+    text-decoration: line-through;
 }
 @media screen and (max-height: 450px) {
     .sidenav {

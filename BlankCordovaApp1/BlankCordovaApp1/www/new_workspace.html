@@ -23,14 +23,14 @@
             <!--<a href="" class="navigation_icon"><img src="images/icon_alert.32.png" alt="Alert Icon" /></a>
         <a href="" class="navigation_icon"><img src="images/icon_rfi.32.png" alt="RFI Icon" /></a>
         <a href="" class="navigation_icon"><img src="images/icon_doc.32.png" alt="Docs Icon" /></a>
-        <a href="" class="navigation_icon"><img src="images/icon_multiuser.32.png" alt="Users Icon" /></a>
-        <a href="./edit_project.html" class="navigation_icon"><img src="images/icon_nut.32.png" alt="Config Icon" /></a>-->
+        <a href="./new_participants.html" class="navigation_icon"><img src="images/icon_multiuser.32.png" alt="Users Icon" /></a>
+        <a href="./edit_workspace.html" class="navigation_icon"><img src="images/icon_nut.32.png" alt="Config Icon" /></a>-->
         </div>
         <div class="top_bar">
             <a onclick="openNav()"><img class="menu_open" src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
             <h3 class="current_site">CREATE</h3>
             <div class="icons">
-                <a href="./project.html" class="menu_option"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
+                <a href="./new_workspace.html" class="menu_option"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
                 <a href="" class="menu_option"><img src="images/icon_grid.32.png" alt="Grid Icon" /></a>
                 <a href="" class="menu_option"><img src="images/icon_list.32.png" alt="List Icon" /></a>
                 <a href="" class="menu_option"><img src="images/icon_lupa.128.png" alt="Search Icon" /></a>
@@ -39,30 +39,17 @@
         </div>
         <div class="project_data_wrapper">
             <h4>Workspace Name:</h4>
-            <input type="text" name="name" value="WORKSPACE TITLE" />
+            <input type="text" name="name" value="" />
 
             <h4>Material's List:</h4>
             <div style="display: flex;">
                 <input type="text" name="name" id="material_new" />
+                <input type="hidden" id="counter_material" value="1" />
                 <a id="myLink" href="#" onclick="AddMaterialsToList();return false;" class="add_material_list"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
                 <a id="myLink" href="#" onclick="LessMaterialsToList();return false;" class="less_material_list"><img src="images/icon_plus.32.png" alt="Delete Icon" /></a>
             </div>
 
-            <ul id="dynamic-list">
-                <li>ABC</li>
-                <li>DEF</li>
-                <li>GHI</li>
-            </ul>
-
-            <h4>To Do List:</h4>
-            <div style="display: flex;">
-                <input type="text" name="name" id="todo_new" />
-                <a id="myLink" href="#" onclick="AddToDoList();return false;" class="add_todo_list"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
-                <a id="myLink" href="#" onclick="LessToDoList();return false;" class="less_todo_list"><img src="images/icon_plus.32.png" alt="Delete Icon" /></a>
-            </div>
-
-            <ul id="dynamic-list">
-            </ul>
+            <ol id="dynamic-list-material"></ol>
 
             <input type="button" id="WorkspaceCreate" class="button" onclick="" value="Guardar" />
         </div>
