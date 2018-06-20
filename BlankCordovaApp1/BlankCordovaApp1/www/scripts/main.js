@@ -7,6 +7,39 @@ function closeNav() {
 }
 
 //PERSONALIZE
+
+function GetWorkspace(id_ws) {
+    var db = window.openDatabase("Database", "1.0", "Zairon_db062018", 200000);
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM WORKSPACE WHERE id=?', [id_ws], function (tx, rs) {
+            //console.log(rs.rows.item(0));
+            var div = document.createElement('div');
+            div.className = 'project_item';
+            div.innerHTML = '<a href="./project.html?project=' + rs.rows.item(0).id +'"> <img src="images/zairon_icon.128.png" alt="Project Icon" /> </a> <h3>' + rs.rows.item(0).name + '</h3>';
+            document.getElementById('project_option').appendChild(div);
+        });
+    });
+}
+
+function onLoad() {
+    var email = window.location.search.split('=')[1];
+    var id_email=0;
+    var db = window.openDatabase("Database", "1.0", "Zairon_db062018", 200000);
+    db.transaction(function (tr) {
+        tr.executeSql('SELECT * FROM USERS WHERE EMAIL=? ', [email], function (tr, rs) {
+            id_email = rs.rows.item(0).id;
+        });
+    });
+
+    db.transaction(function (tx) {
+        tx.executeSql('SELECT * FROM PARTICIPANTS WHERE userFK=? AND active=1', [id_email], function (tx, result) {
+            for (var i = 0; i < result.rows.length; i++) {
+                GetWorkspace(result.rows.item(i).workspaceFK);
+            }
+        });
+    });
+}
+
 function AddMaterialsToList(){
     var ul = document.getElementById("dynamic-list-material");
     var candidate = document.getElementById("material_new");

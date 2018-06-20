@@ -12,10 +12,11 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
 
     <title>App Hibrido</title>
 </head>
-<body>
+<body onload="onLoad()">
     <div class="container">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
@@ -39,7 +40,7 @@
             </div>
         </div>
         <div class="project_wrapper">
-            <div class="project_option">
+            <div class="project_option" id="project_option">
                 <div class="project_item">
                     <a href="./project.html">
                         <img src="images/zairon_icon.128.png" alt="Project Icon" />
