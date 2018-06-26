@@ -15,43 +15,34 @@
 
     <title>App Hibrido</title>
 </head>
-<body>
+<body onload="onLoadNew()">
     <div class="container">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
-            <a href="./main.html" class="navigation_icon"><img id="project" src="images/zairon_icon.32.png" alt="New Project Icon" /></a>
+            <a href="./main.html" class="navigation_icon" id="link_main"><img id="project" src="images/zairon_icon.32.png" alt="New Project Icon" /></a>
+            <a href="javascript:LogOut()" class="navigation_icon" id="logout"><img id="project" src="images/icon_logout.32.png" alt="Log Out Icon" /></a>
             <!--<a href="" class="navigation_icon"><img src="images/icon_alert.32.png" alt="Alert Icon" /></a>
-        <a href="" class="navigation_icon"><img src="images/icon_rfi.32.png" alt="RFI Icon" /></a>
-        <a href="" class="navigation_icon"><img src="images/icon_doc.32.png" alt="Docs Icon" /></a>
-        <a href="./new_participants.html" class="navigation_icon"><img src="images/icon_multiuser.32.png" alt="Users Icon" /></a>
-        <a href="./edit_workspace.html" class="navigation_icon"><img src="images/icon_nut.32.png" alt="Config Icon" /></a>-->
+    <a href="" class="navigation_icon"><img src="images/icon_rfi.32.png" alt="RFI Icon" /></a>
+    <a href="" class="navigation_icon"><img src="images/icon_doc.32.png" alt="Docs Icon" /></a>
+    <a href="./new_participants.html" class="navigation_icon"><img src="images/icon_multiuser.32.png" alt="Users Icon" /></a>
+    <a href="./edit_workspace.html" class="navigation_icon"><img src="images/icon_nut.32.png" alt="Config Icon" /></a>-->
         </div>
         <div class="top_bar">
             <a onclick="openNav()"><img class="menu_open" src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
             <h3 class="current_site">CREATE</h3>
             <div class="icons">
                 <a href="./new_workspace.html" class="menu_option"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
-                <a href="" class="menu_option"><img src="images/icon_grid.32.png" alt="Grid Icon" /></a>
-                <a href="" class="menu_option"><img src="images/icon_list.32.png" alt="List Icon" /></a>
-                <a href="" class="menu_option"><img src="images/icon_lupa.128.png" alt="Search Icon" /></a>
+                <a href="./new_project.html" class="menu_option"><img src="images/icon_plus_p.32.png" alt="Grid Icon" /></a>
+                <!--<a href="" class="menu_option"><img src="images/icon_list.32.png" alt="List Icon" /></a>
+    <a href="" class="menu_option"><img src="images/icon_lupa.128.png" alt="Search Icon" /></a>-->
 
             </div>
         </div>
         <div class="project_data_wrapper">
             <h4>Workspace Name:</h4>
-            <input type="text" name="name" value="" />
+            <input type="text" name="name" value="" id="wsnew_name"/>
 
-            <h4>Material's List:</h4>
-            <div style="display: flex;">
-                <input type="text" name="name" id="material_new" />
-                <input type="hidden" id="counter_material" value="1" />
-                <a id="myLink" href="#" onclick="AddMaterialsToList();return false;" class="add_material_list"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
-                <a id="myLink" href="#" onclick="LessMaterialsToList();return false;" class="less_material_list"><img src="images/icon_plus.32.png" alt="Delete Icon" /></a>
-            </div>
-
-            <ol id="dynamic-list-material"></ol>
-
-            <input type="button" id="WorkspaceCreate" class="button" onclick="" value="Guardar" />
+            <input type="button" id="WorkspaceCreate" class="button" onclick="saveWS()" value="Guardar" />
         </div>
     </div>
 </body>

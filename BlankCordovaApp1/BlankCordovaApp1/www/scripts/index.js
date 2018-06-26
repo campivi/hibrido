@@ -14,6 +14,10 @@
         db.transaction(populateDB_toDo, errorCB, successCB);
         db.transaction(populateDB_participants, errorCB, successCB);
         db.transaction(populateDB_workspace, errorCB, successCB);
+        db.transaction(populateDB_projects, errorCB, successCB); 
+        db.transaction(populateDB_alerts, errorCB, successCB); 
+        db.transaction(populateDB_rif, errorCB, successCB); 
+        db.transaction(populateDB_doc, errorCB, successCB);
     };
 
     function populateDB(tx) {
@@ -42,18 +46,18 @@
     function populateDB_toDo(tx) {
         //TO DO
         tx.executeSql('DROP TABLE IF EXISTS TO_DO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS TO_DO (id unique, desc, parent_id, done)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (1, "WS_1", null, null)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (2, "WS_2", null, null)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (3, "WS_3", null, null)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (4, "WS_4", null, null)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (5, "to do A", 1, 0)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (6, "to do B", 1, 1)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (7, "to do C", 2, 1)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (8, "to do D", 2, 0)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (9, "to do E", 3, 0)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (10, "to do F", 4, 1)');
-        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done) VALUES (11, "to do G", 4, 1)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS TO_DO (id unique, desc, parent_id, done, erased)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (1, "WS_1", null, null, null)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (2, "WS_2", null, null, null)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (3, "WS_3", null, null, null)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (4, "WS_4", null, null, null)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (5, "to do A", 1, 0, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (6, "to do B", 1, 1, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (7, "to do C", 2, 1, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (8, "to do D", 2, 0, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (9, "to do E", 3, 0, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (10, "to do F", 4, 1, 0)');
+        tx.executeSql('INSERT INTO TO_DO (id, desc, parent_id, done, erased) VALUES (11, "to do G", 4, 1, 0)');
     }
 
     function populateDB_participants(tx) {
@@ -70,11 +74,63 @@
     function populateDB_workspace(tx) {
         //WORKSPACE
         tx.executeSql('DROP TABLE IF EXISTS WORKSPACE');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS WORKSPACE (id unique, name, materialListFK, toDoListFK, userListFK)');
-        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, userListFK) VALUES (1, "WS_1", 1, 1, 1)');
-        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, userListFK) VALUES (2, "WS_2", 2, 2, 2)');
-        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, userListFK) VALUES (3, "WS_3", 3, 3, 3)');
-        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, userListFK) VALUES (4, "WS_4", 4, 4, 4)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS WORKSPACE (id unique, name, materialListFK, toDoListFK, erased)');
+        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, erased) VALUES (1, "WS_1", 1, 1, 0)');
+        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, erased) VALUES (2, "WS_2", 2, 2, 0)');
+        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, erased) VALUES (3, "WS_3", 3, 3, 0)');
+        tx.executeSql('INSERT INTO WORKSPACE (id, name, materialListFK, toDoListFK, erased) VALUES (4, "WS_4", 4, 4, 0)');
+    }
+    function populateDB_projects(tx) {
+        //PROJECT
+        tx.executeSql('DROP TABLE IF EXISTS PROJECT');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS PROJECT (id unique, name, workspaceFK, imageLocation, erased)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (1, "PR_1", 1, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (2, "PR_2", 1, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (3, "PR_3", 1, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (4, "PR_4", 1, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (5, "PR_5", 2, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (6, "PR_6", 2, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (7, "PR_7", 3, null, 0)');
+        tx.executeSql('INSERT INTO PROJECT (id, name, workspaceFK, imageLocation, erased) VALUES (8, "PR_8", 3, null, 0)');
+    }
+    function populateDB_alerts(tx) {
+        //ALERT
+        tx.executeSql('DROP TABLE IF EXISTS ALERT');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS ALERT (id unique, desc, workspaceFK, projectFK, erased)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (1, "ALERT_1", 1, 1, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (2, "ALERT_2", 1, 2, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (3, "ALERT_3", 1, 3, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (4, "ALERT_4", 1, 4, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (5, "ALERT_5", 2, 5, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (6, "ALERT_6", 2, 6, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (7, "ALERT_7", 3, 7, 0)');
+        tx.executeSql('INSERT INTO ALERT (id, desc, workspaceFK, projectFK, erased) VALUES (8, "ALERT_8", 3, 8, 0)');
+    }
+    function populateDB_rif(tx) {
+        //RIF
+        tx.executeSql('DROP TABLE IF EXISTS RFI');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS RFI (id unique, doc_url, workspaceFK, projectFK, state, created_date)');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (1, "URL_1", 1, 1, "PENDIENTE", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (2, "URL_2", 1, 2, "DENEGADO", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (3, "URL_3", 1, 3, "PENDIENTE", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (4, "URL_4", 1, 4, "RESUELTO", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (5, "URL_5", 2, 5, "PENDIENTE", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (6, "URL_6", 2, 6, "RESUELTO", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (7, "URL_7", 3, 7, "DENEGADO", "25/06/2018")');
+        tx.executeSql('INSERT INTO RFI (id, doc_url, workspaceFK, projectFK, state, created_date) VALUES (8, "URL_8", 3, 8, "PENDIENTE", "25/06/2018")');
+    }
+    function populateDB_doc(tx) {
+        //DOCS
+        tx.executeSql('DROP TABLE IF EXISTS DOCS');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DOCS (id unique, name, workspaceFK, projectFK, erased, created_date)');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (1, "DOC_1", 1, 1, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (2, "DOC_2", 1, 2, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (3, "DOC_3", 1, 3, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (4, "DOC_4", 1, 4, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (5, "DOC_5", 2, 5, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (6, "DOC_6", 2, 6, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (7, "DOC_7", 3, 7, 0, "25/06/2018")');
+        tx.executeSql('INSERT INTO DOCS (id, name, workspaceFK, projectFK, erased, created_date) VALUES (8, "DOC_8", 3, 8, 0, "25/06/2018")');
     }
 
 

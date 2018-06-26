@@ -15,7 +15,7 @@
 
     <title>App Hibrido</title>
 </head>
-<body onload="onLoadParticipants()">
+<body onload="onLoadAlert()">
     <div class="container">
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
@@ -29,7 +29,7 @@
         </div>
         <div class="top_bar">
             <a onclick="openNav()"><img class="menu_open" src="images/Zairon_logo_B.32.png" alt="Logo Icon" /></a>
-            <h3 class="current_site">ADD USERS</h3>
+            <h3 class="current_site">ADD ALERTS</h3>
             <div class="icons">
                 <a href="./new_workspace.html" class="menu_option"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
                 <a href="./new_project.html" class="menu_option"><img src="images/icon_plus_p.32.png" alt="Grid Icon" /></a>
@@ -39,15 +39,16 @@
             </div>
         </div>
         <div class="project_data_wrapper">
-
-            <h4>Add Participant's Mail:</h4>
+            <h4>Which project?</h4>
+            <select id="project_select">
+            </select>
+            <h4>Add Alert:</h4>
             <div style="display: flex;">
-                <input type="text" name="name" id="participants_new" />
-                <a id="myLink" href="#" onclick="AddParticipantsToList();return false;" class="add_material_list"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
-                <a id="myLink" href="#" onclick="LessParticipantsToList();return false;" class="less_material_list"><img src="images/icon_plus.32.png" alt="Delete Icon" /></a>
+                <input type="text" name="name" id="alerts_new" />
+                <a id="myLink" href="#" onclick="AddAlertToList();return false;" class="add_material_list"><img src="images/icon_plus.32.png" alt="Plus Icon" /></a>
+                <a id="myLink" href="#" onclick="LessAlertToList();return false;" class="less_material_list"><img src="images/icon_plus.32.png" alt="Delete Icon" /></a>
             </div>
-
-            <ol id="dynamic-list-participants"></ol>
+            <div id="uls-list"></div>
         </div>
     </div>
 </body>
